@@ -28,6 +28,15 @@ This document provides step-by-step guides for managing the ERPNext system via t
 - [Fiscal Year Management](#fiscal-year-management)
   - [View Fiscal Years](#view-fiscal-years)
   - [Create New Fiscal Year](#create-new-fiscal-year)
+- [Cost Center Management](#cost-center-management)
+  - [What are Cost Centers](#what-are-cost-centers)
+  - [Current Cost Center Structure](#current-cost-center-structure)
+  - [View Cost Centers](#view-cost-centers)
+  - [Create a New Cost Center](#create-a-new-cost-center)
+  - [Edit a Cost Center](#edit-a-cost-center)
+  - [Delete a Cost Center](#delete-a-cost-center)
+  - [How Cost Centers Work in Transactions](#how-cost-centers-work-in-transactions)
+  - [Branch-Wise Profit & Loss Reports](#branch-wise-profit--loss-reports)
 - [Language Management (English & Arabic)](#language-management-english--arabic)
   - [Enable Arabic in System Settings](#enable-arabic-in-system-settings)
   - [Switch User Language to Arabic](#switch-user-language-to-arabic)
@@ -366,6 +375,186 @@ The system has three custom roles configured for the tuition center:
 
 ---
 
+## Cost Center Management
+
+### What are Cost Centers
+
+Cost centers are a way to **track income and expenses by branch**. They allow you to see profit/loss for each branch separately.
+
+**Without cost centers:**
+```
+REG Learning Center (total)
+  ├── Income: 5,000 KWD
+  └── Expenses: 3,000 KWD
+  └── Profit: 2,000 KWD
+```
+
+**With cost centers:**
+```
+REG Learning Center (total)
+  ├── Jaleeb Branch
+  │   ├── Income: 3,000 KWD (fees collected)
+  │   ├── Expenses: 1,800 KWD (rent, salary, utilities)
+  │   └── Profit: 1,200 KWD
+  │
+  ├── Mangaf Branch
+  │   ├── Income: 2,000 KWD (fees collected)
+  │   ├── Expenses: 1,200 KWD (rent, salary, utilities)
+  │   └── Profit: 800 KWD
+```
+
+### Current Cost Center Structure
+
+```
+REG Learning Center - REG (Root, Group)
+├── Main - REG (default)
+├── Jaleeb Branch - REG (Group)
+│   ├── Jaleeb - Income - REG
+│   └── Jaleeb - Expenses - REG
+└── Mangaf Branch - REG (Group)
+    ├── Mangaf - Income - REG
+    └── Mangaf - Expenses - REG
+```
+
+**Total: 8 cost centers**
+
+| Cost Center | Type | Purpose |
+|---|---|---|
+| REG Learning Center - REG | Group (Root) | Parent for all cost centers |
+| Main - REG | Non-Group | Default cost center for untagged transactions |
+| Jaleeb Branch - REG | Group | Parent for Jaleeb sub-cost centers |
+| Jaleeb - Income - REG | Non-Group | Tag fee income from Jaleeb branch |
+| Jaleeb - Expenses - REG | Non-Group | Tag expenses (rent, salary) for Jaleeb branch |
+| Mangaf Branch - REG | Group | Parent for Mangaf sub-cost centers |
+| Mangaf - Income - REG | Non-Group | Tag fee income from Mangaf branch |
+| Mangaf - Expenses - REG | Non-Group | Tag expenses (rent, salary) for Mangaf branch |
+
+---
+
+### View Cost Centers
+
+1. Login to ERPNext at `http://localhost:8080`
+2. Click the **search bar** at the top
+3. Type **Cost Center** and select **Cost Center List**
+4. You will see a tree view showing:
+   - REG Learning Center (root)
+     - Main
+     - Jaleeb Branch
+       - Jaleeb - Income
+       - Jaleeb - Expenses
+     - Mangaf Branch
+       - Mangaf - Income
+       - Mangaf - Expenses
+
+**Alternative**: Search **Chart of Cost Centers** to see the tree structure visually.
+
+---
+
+### Create a New Cost Center
+
+1. Go to **Cost Center List** (search bar → "Cost Center" → Cost Center List)
+2. Click **+ Add Cost Center** button (top right)
+3. Fill in the form:
+   - **Cost Center Name**: e.g., `Salmiya Branch`
+   - **Parent Cost Center**: Select `REG Learning Center - REG` (for a new branch)
+   - **Is Group**: Check this if you want to add sub-cost centers under it
+   - **Company**: REG Learning Center (auto-filled)
+4. Click **Save**
+
+**To add sub-cost centers (Income/Expenses):**
+1. Create the branch as a **Group** cost center first
+2. Then create Income and Expenses as non-group cost centers under it
+3. Set Parent Cost Center = the branch name
+
+**Example for a new branch:**
+```
+1. Create "Salmiya Branch" (Group, parent: REG Learning Center - REG)
+2. Create "Salmiya - Income" (Non-Group, parent: Salmiya Branch - REG)
+3. Create "Salmiya - Expenses" (Non-Group, parent: Salmiya Branch - REG)
+```
+
+---
+
+### Edit a Cost Center
+
+1. Go to **Cost Center List** (search bar → "Cost Center" → Cost Center List)
+2. Click on the cost center name you want to edit
+3. Make your changes (name, parent, etc.)
+4. Click **Save**
+
+**Note**: Changing the parent cost center will move the entire sub-tree. Be cautious with cost centers that have existing transactions.
+
+---
+
+### Delete a Cost Center
+
+1. Go to **Cost Center List**
+2. Click on the cost center name you want to delete
+3. Click the **three dots menu** (⋯) at the top right
+4. Select **Delete**
+5. Confirm by clicking **Yes**
+
+**Warning**:
+- You **cannot delete** a cost center that has linked transactions (invoices, payments, journal entries)
+- You **cannot delete** a Group cost center that has child cost centers
+- Delete child cost centers first, then the parent
+- Consider renaming to `INACTIVE - name` instead of deleting if it has historical data
+
+---
+
+### How Cost Centers Work in Transactions
+
+When creating any financial transaction, you can tag it with a cost center:
+
+**Fee Collection (Sales Invoice):**
+1. Search **Sales Invoice** → click **+ Add Sales Invoice**
+2. Fill in student details and fee amount
+3. Look for the **Cost Center** field (usually in the accounting section)
+4. Select the appropriate branch cost center:
+   - `Jaleeb - Income - REG` for Jaleeb branch fees
+   - `Mangaf - Income - REG` for Mangaf branch fees
+5. Save and submit the invoice
+
+**Expense Recording (Journal Entry / Payment Entry):**
+1. Search **Journal Entry** → click **+ Add Journal Entry**
+2. Enter the expense details
+3. Select the appropriate branch expense cost center:
+   - `Jaleeb - Expenses - REG` for Jaleeb branch expenses
+   - `Mangaf - Expenses - REG` for Mangaf branch expenses
+4. Save and submit
+
+**Salary Processing (Salary Slip):**
+1. When processing payroll, tag each salary slip with the employee's branch cost center
+2. This automatically tracks salary expenses per branch
+
+---
+
+### Branch-Wise Profit & Loss Reports
+
+1. Search **Profit and Loss Statement**
+2. Open the report
+3. Set filters:
+   - **Company**: REG Learning Center
+   - **From Date**: Start of fiscal year
+   - **To Date**: End date for report
+   - **Cost Center**: Select a specific branch (e.g., `Jaleeb Branch - REG`)
+4. Click **Report** to generate
+5. You will see income and expenses only for that branch
+6. Repeat with `Mangaf Branch - REG` to compare
+
+**To see all branches at once:**
+1. Open **Profit and Loss Statement**
+2. Leave Cost Center blank (shows all)
+3. Or use the **Consolidated P&L** report
+4. Use **Dimension Filters** to break down by cost center
+
+**Other useful reports:**
+- **Trial Balance**: Filter by cost center to see account balances per branch
+- **Balance Sheet**: Can be filtered by cost center
+- **General Ledger**: Filter by cost center for detailed transactions
+
+---
+
 ## Language Management (English & Arabic)
 
 The system supports both **English** and **Arabic (العربية)** languages. Both are available in the system. Arabic includes automatic RTL (Right-to-Left) layout support.
@@ -501,6 +690,9 @@ Once Arabic is enabled in System Settings, each user can switch their language:
 | View users | User | User List |
 | View company | Company | Company List |
 | View fiscal year | Fiscal Year | Fiscal Year List |
+| View cost centers | Cost Center | Cost Center List |
+| Cost center tree | Chart of Cost Centers | Chart of Cost Centers |
+| Profit & Loss by branch | Profit and Loss Statement | Profit and Loss Statement → filter by Cost Center |
 | Role permissions | Role Permissions Manager | Role Permissions Manager |
 | System settings | System Settings | System Settings |
 | Global defaults | Global Defaults | Global Defaults |

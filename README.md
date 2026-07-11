@@ -39,12 +39,12 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 **5 Additional Items:**
 1. **System settings** - Timezone (Asia/Kuwait), date format, number format ✅ DONE
 2. **Fiscal year** - Create fiscal year for the institute ✅ DONE (2025-2026)
-3. **Cost centers** - Set up branch-wise cost centers for accounting ⬜ PENDING
+3. **Cost centers** - Set up branch-wise cost centers for accounting ✅ DONE (Jaleeb, Mangaf with Income/Expenses sub-centers)
 4. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents ⬜ PENDING
 5. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
 
 **Total: 10 items (5 core + 5 additional)**
-**Completed: 6/10 | Pending: 4/10**
+**Completed: 7/10 | Pending: 3/10**
 
 **Arabic Language Setup Note:**
 - Arabic (العربية, code: `ar`) is available in the system with 84 total languages
@@ -70,6 +70,7 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 - ✅ 20 active roles retained (Super Admin, Branch Admin, Staff, Administrator, System Manager, Accounts Manager, HR Manager, Sales Manager, Academics User, etc.)
 - ✅ Arabic language (العربية) available with RTL support
 - ✅ System Settings: Timezone=Asia/Kuwait, Date Format=dd-mm-yyyy, Number Format=#,###.##, Float Precision=2, Currency Precision=3 (KWD uses 3 decimals)
+- ✅ Cost Centers: REG Learning Center (root) → Jaleeb Branch (Income + Expenses) + Mangaf Branch (Income + Expenses)
 
 ### Phase 2: Education Module (First functional module)
 - Academic year & term setup
