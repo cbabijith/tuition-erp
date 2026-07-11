@@ -6,9 +6,29 @@ This combination creates a complete digital management system for the tuition ce
 
 ---
 
+## Modules Required for Tuition Center
+
+The following **8 modules** cover 100% of the tuition center requirements:
+
+| # | Module | Purpose |
+|---|---|---|
+| 1 | **Education** | Student records, courses, subjects, enrollment, fee structure, fee generation |
+| 2 | **CRM** | Lead management, enquiries, admission pipeline, follow-ups |
+| 3 | **Accounting** | Fee collection, payments, invoices, P&L, balance sheet, branch-wise financials |
+| 4 | **HR & Payroll** | Employee database, salary structures, payroll processing, salary slips |
+| 5 | **Attendance & Leave** | Staff/teacher attendance, leave requests/approvals, leave balance tracking |
+| 6 | **Assets** | Institute asset tracking across branches, allocation, maintenance history |
+| 7 | **Document Management** | Student/employee document storage linked to records |
+| 8 | **Reports & Dashboards** | Fee collection, pending fees, defaulter tracking, management KPIs |
+
+All 8 modules come pre-installed with ERPNext v15. No additional module installation needed.
+
+---
+
 ## Table of Contents
 
 - [Overview](#overview)
+- [Modules Required for Tuition Center](#modules-required-for-tuition-center)
 - [Tech Stack](#tech-stack)
 - [Quick Start](#quick-start)
 - [Deployment on a New Server](#deployment-on-a-new-server)
