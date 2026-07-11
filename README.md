@@ -84,12 +84,64 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 - ✅ Number Series: 26 REG-prefixed series created, 15 doctypes configured with REG naming series
 - ✅ Email (SMTP): Gmail configured (info@abijithcb.com, smtp.gmail.com:587, TLS, default outgoing, signature with institute info)
 
-### Phase 2: Education Module (First functional module)
-- Academic year & term setup
-- Create programs/courses (Physics, Chemistry, Maths, combos)
-- Configure fee structures (subject-wise, combo packages)
-- Set up fee schedules (monthly billing)
-- Student enrollment workflow
+### Phase 2: Education Module (First functional module) ⬜ IN PROGRESS
+
+The Education module is the core operating module for the tuition center. This phase covers student admissions, courses, and fee management.
+
+**Required:** Education module must be enabled/installed first.
+
+**Sub-tasks:**
+
+#### 2.1 Academic Year & Term Setup
+- Create academic year (e.g., 2025-2026)
+- Create academic terms (e.g., Term 1, Term 2, Term 3 or Semester 1, Semester 2)
+- Set start and end dates for each term
+
+#### 2.2 Programs & Courses
+- Create programs (e.g., Grade 10, Grade 11, Grade 12)
+- Create individual courses:
+  - Physics
+  - Chemistry
+  - Mathematics
+  - Biology
+  - English
+- Create combo packages:
+  - Physics + Chemistry + Maths (PCM)
+  - Physics + Chemistry + Biology (PCB)
+  - Custom subject combinations
+
+#### 2.3 Fee Structures
+- Define fee per individual subject
+- Define combo/package fees (discounted bundle pricing)
+- Set one-time fees (admission, registration, books)
+- Assign default branch cost centers
+
+#### 2.4 Fee Schedules
+- Set monthly billing schedule
+- Auto-generate fee invoices per student
+- Set due dates and late fee rules
+- Link generated fees to Sales Invoice / Print Format
+
+#### 2.5 Student Enrollment
+- Create student from applicant or directly
+- Enroll student in a program
+- Assign subjects/courses per student
+- Branch assignment (Jaleeb or Mangaf)
+- Auto-generate student ID using `REG-STU-.YYYY.-` series
+
+#### 2.6 Education Settings & Number Series
+- Enable naming series for Student, Fees, Fee Structure, Fee Schedule
+- Link Fee Receipt print format to fee receipts
+- Link REG Standard Invoice to Sales Invoice print
+
+**Number series already created for Phase 2:**
+- Student: `REG-STU-.YYYY.-` (e.g., REG-STU-2025-0001)
+- Student Applicant: `REG-APP-.YYYY.-`
+- Student Group: `REG-SG-.YYYY.-`
+- Program Enrollment: `REG-PE-.YYYY.-`
+- Fee Structure: `REG-FS-.YYYY.-`
+- Fee Schedule: `REG-FSC-.YYYY.-`
+- Fees: `REG-FEE-.YYYY.-`
 
 ### Phase 3: CRM Module
 - Lead capture (enquiries from parents/students)
