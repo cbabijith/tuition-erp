@@ -34,7 +34,7 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 2. **Branches** - Configure branch locations (Head Office + additional branches) ✅ DONE (Jaleeb, Mangaf)
 3. **Roles & permissions** - Super Admin, Branch Admin, Staff roles ✅ DONE
 4. **Email (SMTP)** - Configure outgoing email server ⬜ PENDING
-5. **Arabic language** - Enable Arabic translation + RTL layout ⬜ PENDING
+5. **Arabic language** - Enable Arabic translation + RTL layout ✅ DONE (via UI - see note below)
 
 **5 Additional Items:**
 1. **System settings** - Timezone (Asia/Kuwait), date format, number format ⬜ PENDING
@@ -44,7 +44,14 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 5. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
 
 **Total: 10 items (5 core + 5 additional)**
-**Completed: 4/10 | Pending: 6/10**
+**Completed: 5/10 | Pending: 5/10**
+
+**Arabic Language Setup Note:**
+- Arabic (العربية, code: `ar`) is available in the system with 84 total languages
+- RTL (Right-to-Left) layout is automatic when Arabic is selected
+- To enable Arabic via UI: System Settings → Enabled Languages → add `ar`
+- Each user can set their language: User Profile → Settings → Language → Arabic
+- System default remains English
 
 **Additional work completed:**
 - ✅ Company: REG Learning Center created (Abbr: REG, Country: Kuwait, Currency: KWD, Domain: Education)
@@ -56,7 +63,12 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 - ✅ Default company & currency set in Global Defaults
 - ✅ Default "ABC" company deleted
 - ✅ 11 unwanted workspaces hidden (Manufacturing, Quality, Buying, Stock, Projects, Support, Website, Tools, ERPNext Integrations, Build, Welcome Workspace)
-- ✅ 11 visible workspaces retained (Home, Accounting, Financial Reports, Receivables, Payables, CRM, Assets, Selling, Integrations, ERPNext Settings, Users)
+- ✅ Integrations workspace hidden
+- ✅ ERPNext Settings workspace renamed to "REG Settings"
+- ✅ 10 visible workspaces retained (Home, REG Settings, Accounting, Financial Reports, Receivables, Payables, CRM, Assets, Selling, Users)
+- ✅ 33 unwanted roles disabled (Manufacturing, Agriculture, Stock, Purchase, Projects, Quality, Delivery, Fleet, Website, Support, etc.)
+- ✅ 20 active roles retained (Super Admin, Branch Admin, Staff, Administrator, System Manager, Accounts Manager, HR Manager, Sales Manager, Academics User, etc.)
+- ✅ Arabic language (العربية) available with RTL support
 
 ### Phase 2: Education Module (First functional module)
 - Academic year & term setup
