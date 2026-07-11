@@ -40,11 +40,11 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 1. **System settings** - Timezone (Asia/Kuwait), date format, number format ✅ DONE
 2. **Fiscal year** - Create fiscal year for the institute ✅ DONE (2025-2026)
 3. **Cost centers** - Set up branch-wise cost centers for accounting ✅ DONE (Jaleeb, Mangaf with Income/Expenses sub-centers)
-4. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents ⬜ PENDING
+4. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents ✅ DONE (letterhead + 2 print formats created, header needs manual UI step - see note below)
 5. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
 
 **Total: 10 items (5 core + 5 additional)**
-**Completed: 7/10 | Pending: 3/10**
+**Completed: 8/10 | Pending: 2/10**
 
 **Arabic Language Setup Note:**
 - Arabic (العربية, code: `ar`) is available in the system with 84 total languages
@@ -52,6 +52,14 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 - To enable Arabic via UI: System Settings → Enabled Languages → add `ar`
 - Each user can set their language: User Profile → Settings → Language → Arabic
 - System default remains English
+
+**Print Formats & Letterhead Setup Note:**
+- Letterhead "REG Learning Center" created (set as default, footer configured)
+- Print Format "Fee Receipt" created for Sales Invoice (Jinja/HTML)
+- Print Format "REG Standard Invoice" created for Sales Invoice (Jinja/HTML)
+- Manual UI step needed: Search "Letter Head" → open "REG Learning Center" → paste header HTML → Save
+- Manual UI step needed: Search "Print Format" → open each format → set Letter Head = "REG Learning Center" → Save
+- Logo can be uploaded via UI: Letter Head → open → upload image in header section
 
 **Additional work completed:**
 - ✅ Company: REG Learning Center created (Abbr: REG, Country: Kuwait, Currency: KWD, Domain: Education)
@@ -71,6 +79,8 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 - ✅ Arabic language (العربية) available with RTL support
 - ✅ System Settings: Timezone=Asia/Kuwait, Date Format=dd-mm-yyyy, Number Format=#,###.##, Float Precision=2, Currency Precision=3 (KWD uses 3 decimals)
 - ✅ Cost Centers: REG Learning Center (root) → Jaleeb Branch (Income + Expenses) + Mangaf Branch (Income + Expenses)
+- ✅ Print Formats: Fee Receipt + REG Standard Invoice created for Sales Invoice with Jinja/HTML templates
+- ✅ Letterhead: REG Learning Center created (default, footer configured)
 
 ### Phase 2: Education Module (First functional module)
 - Academic year & term setup

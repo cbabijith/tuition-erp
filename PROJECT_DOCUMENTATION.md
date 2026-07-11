@@ -37,6 +37,16 @@ This document provides step-by-step guides for managing the ERPNext system via t
   - [Delete a Cost Center](#delete-a-cost-center)
   - [How Cost Centers Work in Transactions](#how-cost-centers-work-in-transactions)
   - [Branch-Wise Profit & Loss Reports](#branch-wise-profit--loss-reports)
+- [Print Formats & Letterhead](#print-formats--letterhead)
+  - [What are Print Formats & Letterhead](#what-are-print-formats--letterhead)
+  - [Current Setup](#current-setup)
+  - [View Letterhead](#view-letterhead)
+  - [Add Header HTML to Letterhead (Manual UI Step)](#add-header-html-to-letterhead-manual-ui-step)
+  - [Upload Logo to Letterhead](#upload-logo-to-letterhead)
+  - [View Print Formats](#view-print-formats)
+  - [Link Print Format to Letterhead (Manual UI Step)](#link-print-format-to-letterhead-manual-ui-step)
+  - [Create a New Print Format](#create-a-new-print-format)
+  - [Preview a Print Format](#preview-a-print-format)
 - [Language Management (English & Arabic)](#language-management-english--arabic)
   - [Enable Arabic in System Settings](#enable-arabic-in-system-settings)
   - [Switch User Language to Arabic](#switch-user-language-to-arabic)
@@ -555,6 +565,146 @@ When creating any financial transaction, you can tag it with a cost center:
 
 ---
 
+## Print Formats & Letterhead
+
+### What are Print Formats & Letterhead
+
+**Letterhead** is the header and footer that appears on every printed document (fee receipts, invoices, letters). It contains the institute name, logo, address, and contact info.
+
+**Print Format** is the layout and design of the document content itself (what fields appear, how they're arranged, styling).
+
+```
+┌─────────────────────────────────────────────┐
+│  [LOGO]  REG Learning Center               │  ← Letterhead (header)
+│          Jaleeb Al Shuyoukh, Kuwait         │
+│          Tel: 65546684                      │
+├─────────────────────────────────────────────┤
+│                                             │
+│         FEE RECEIPT                         │  ← Print Format (content)
+│         Receipt No: INV-001                 │
+│         Student: Ahmed Ali                  │
+│         Amount: 150.000 KWD                 │
+│                                             │
+├─────────────────────────────────────────────┤
+│  REG Learning Center | www.reg.edu.kw      │  ← Letterhead (footer)
+└─────────────────────────────────────────────┘
+```
+
+### Current Setup
+
+| Item | Name | Type | Status |
+|---|---|---|---|
+| Letterhead | REG Learning Center | Default letterhead | Created (footer configured, header needs manual step) |
+| Print Format | Fee Receipt | Sales Invoice (Jinja/HTML) | Created (2,145 chars HTML) |
+| Print Format | REG Standard Invoice | Sales Invoice (Jinja/HTML) | Created (2,913 chars HTML) |
+
+---
+
+### View Letterhead
+
+1. Login to ERPNext at `http://localhost:8080`
+2. Click the **search bar** at the top
+3. Type **Letter Head** and select **Letter Head List**
+4. Click on **REG Learning Center**
+5. You will see:
+   - Letter Head Name: REG Learning Center
+   - Is Default: Checked
+   - Header: (HTML editor - needs content)
+   - Footer: HTML with institute info
+
+---
+
+### Add Header HTML to Letterhead (Manual UI Step)
+
+The letterhead header could not be set via API. You need to add it manually:
+
+1. Go to **Letter Head List** → click **REG Learning Center**
+2. Find the **Header** field (HTML editor area)
+3. Click the **HTML/source code** button (or click in the editor area)
+4. Paste the following HTML:
+
+```html
+<div style="text-align: center;">
+  <h2 style="margin: 0; color: #1a4f8b;">REG Learning Center</h2>
+  <p style="margin: 2px 0; font-size: 12px; color: #555;">
+    Floor No. 1, Building No. 172, Street 25, Block 4, Jaleeb Al Shuyoukh, Kuwait
+  </p>
+  <p style="margin: 2px 0; font-size: 12px; color: #555;">
+    Tel: 65546684 | Email: info@reg.edu.kw
+  </p>
+  <hr style="border: 1px solid #1a4f8b; margin: 5px 0;">
+</div>
+```
+
+5. Click **Save**
+
+---
+
+### Upload Logo to Letterhead
+
+To add the institute logo to the letterhead:
+
+1. Go to **Letter Head List** → click **REG Learning Center**
+2. In the **Header** field, click the image upload icon in the HTML editor
+3. Upload the REG Learning Center logo image (PNG/JPG, recommended size: 200x60px)
+4. Position the logo as desired (left, center, or right)
+5. Click **Save**
+
+**Logo tips:**
+- Use a transparent PNG for best results
+- Recommended dimensions: 200x60 pixels or similar
+- Keep file size under 100KB for fast printing
+
+---
+
+### View Print Formats
+
+1. Click the **search bar** at the top
+2. Type **Print Format** and select **Print Format List**
+3. You will see:
+   - **Fee Receipt** (for Sales Invoice)
+   - **REG Standard Invoice** (for Sales Invoice)
+   - Plus any built-in ERPNext print formats
+4. Click on any format name to view/edit its HTML
+
+---
+
+### Link Print Format to Letterhead (Manual UI Step)
+
+The print formats need to be linked to the letterhead manually:
+
+1. Go to **Print Format List** → click **Fee Receipt**
+2. Find the **Letter Head** field
+3. Select **REG Learning Center** from the dropdown
+4. Click **Save**
+5. Repeat for **REG Standard Invoice**
+
+---
+
+### Create a New Print Format
+
+1. Go to **Print Format List** (search bar → "Print Format" → Print Format List)
+2. Click **+ Add Print Format**
+3. Fill in:
+   - **Print Format Name**: e.g., `Student ID Card`
+   - **Doc Type**: Select the document type (e.g., "Student")
+   - **Print Format Type**: Select "Jinja" for custom HTML or "Standard" for default layout
+   - **Letter Head**: Select "REG Learning Center"
+4. If Jinja type, write HTML template in the **HTML** field
+5. Click **Save**
+
+---
+
+### Preview a Print Format
+
+1. Open any document (e.g., a Sales Invoice)
+2. Click the **Print icon** (printer icon at top right)
+3. Select the print format from the dropdown (e.g., "Fee Receipt")
+4. The document will display with the selected format and letterhead
+5. Click **Print** or **PDF** to export
+
+---
+
 ## Language Management (English & Arabic)
 
 The system supports both **English** and **Arabic (العربية)** languages. Both are available in the system. Arabic includes automatic RTL (Right-to-Left) layout support.
@@ -693,6 +843,8 @@ Once Arabic is enabled in System Settings, each user can switch their language:
 | View cost centers | Cost Center | Cost Center List |
 | Cost center tree | Chart of Cost Centers | Chart of Cost Centers |
 | Profit & Loss by branch | Profit and Loss Statement | Profit and Loss Statement → filter by Cost Center |
+| View letterhead | Letter Head | Letter Head List |
+| View print formats | Print Format | Print Format List |
 | Role permissions | Role Permissions Manager | Role Permissions Manager |
 | System settings | System Settings | System Settings |
 | Global defaults | Global Defaults | Global Defaults |
