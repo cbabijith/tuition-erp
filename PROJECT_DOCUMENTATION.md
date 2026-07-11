@@ -28,6 +28,12 @@ This document provides step-by-step guides for managing the ERPNext system via t
 - [Fiscal Year Management](#fiscal-year-management)
   - [View Fiscal Years](#view-fiscal-years)
   - [Create New Fiscal Year](#create-new-fiscal-year)
+- [Language Management (English & Arabic)](#language-management-english--arabic)
+  - [Enable Arabic in System Settings](#enable-arabic-in-system-settings)
+  - [Switch User Language to Arabic](#switch-user-language-to-arabic)
+  - [Switch Back to English](#switch-back-to-english)
+  - [What Changes When Language is Switched](#what-changes-when-language-is-switched)
+  - [Troubleshooting Language Issues](#troubleshooting-language-issues)
 
 ---
 
@@ -360,6 +366,132 @@ The system has three custom roles configured for the tuition center:
 
 ---
 
+## Language Management (English & Arabic)
+
+The system supports both **English** and **Arabic (العربية)** languages. Both are available in the system. Arabic includes automatic RTL (Right-to-Left) layout support.
+
+### Enable Arabic in System Settings
+
+Before users can switch to Arabic, it must be enabled in System Settings:
+
+1. Login to ERPNext at `http://localhost:8080`
+2. Click the **search bar** at the top
+3. Type **System Settings** and select it
+4. Scroll through the settings page to find the **Language** section
+5. Look for the **Enabled Languages** field
+6. Click in the field and type `ar`
+7. You should see **Arabic (العربية)** appear in the dropdown
+8. Click to select it
+9. Both `en` (English) and `ar` (Arabic) should now be listed in the field
+10. Click **Save** button at the top right
+
+**Note**: If you cannot find the Enabled Languages field, try these alternatives:
+- Search bar → type **System Settings** → look for tabs at the top of the page
+- The field may be under a tab called **Localization** or **General**
+- If the field is empty, it means all languages are enabled by default
+
+---
+
+### Switch User Language to Arabic
+
+Once Arabic is enabled in System Settings, each user can switch their language:
+
+1. Click your **profile picture** (top right corner of the screen)
+2. Click **Settings** from the dropdown menu
+3. Find the **Language** field
+4. Click the dropdown and select **Arabic (العربية)**
+5. Click **Save**
+6. The page will reload automatically
+7. The entire UI will now display in Arabic with RTL (Right-to-Left) layout
+
+**What happens:**
+- All menus, buttons, labels, and system text switch to Arabic
+- The layout flips to Right-to-Left (RTL)
+- The sidebar moves to the right side
+- Data you entered (student names, fee amounts, etc.) remains unchanged
+- Only the system interface language changes
+
+---
+
+### Switch Back to English
+
+1. Click your **profile picture** (top right - now on the right side in RTL mode)
+2. Click **الإعدادات** (Settings in Arabic)
+3. Find **اللغة** (Language field)
+4. Change it back to **English**
+5. Click **حفظ** (Save button)
+6. The page will reload in English with LTR (Left-to-Right) layout
+
+---
+
+### What Changes When Language is Switched
+
+| Area | English Mode | Arabic Mode |
+|---|---|---|
+| **UI Labels** | Student, Fee, Invoice, etc. | طالب، رسوم، فاتورة، etc. |
+| **Menu Items** | English menu names | Arabic translated menu names |
+| **Buttons** | Save, Cancel, Delete | حفظ، إلغاء، حذف |
+| **Layout Direction** | Left-to-Right (LTR) | Right-to-Left (RTL) |
+| **Sidebar Position** | Left side | Right side |
+| **Date Format** | English format | Arabic format |
+| **System Messages** | English notifications | Arabic notifications |
+| **Your Data** | Unchanged | Unchanged (data stays as entered) |
+| **Reports** | English headers | Arabic headers |
+| **Print Formats** | English templates | Arabic templates (if translated) |
+
+**Important**: 
+- Data you entered (student names, fee amounts, phone numbers, addresses) does **NOT** change
+- Only the system interface (menus, labels, buttons) switches language
+- Different users can use different languages simultaneously
+- The system default language remains English unless changed in System Settings
+
+---
+
+### Troubleshooting Language Issues
+
+**Problem: Language doesn't change after selecting Arabic**
+
+1. **Check if Arabic is enabled in System Settings:**
+   - Search bar → System Settings → look for Enabled Languages
+   - Make sure `ar` is listed
+   - If not, add it and Save
+
+2. **Clear browser cache:**
+   - Press `Ctrl + Shift + Delete` in your browser
+   - Clear cache and cookies
+   - Reload `http://localhost:8080`
+   - Login again and try switching language
+
+3. **Hard refresh the page:**
+   - Press `Ctrl + F5` (or `Ctrl + Shift + R`)
+   - This forces the browser to reload all resources
+
+4. **Check user language setting:**
+   - Profile → Settings → Language
+   - Make sure it shows Arabic (العربية)
+   - If it reverts to English, the System Settings may not have Arabic enabled
+
+5. **Try setting language via URL:**
+   - Go to `http://localhost:8080/app/settings`
+   - Change Language to Arabic
+   - Save and reload
+
+**Problem: Some text still shows in English after switching to Arabic**
+
+- This is normal - not all text is translated in ERPNext
+- Core modules (Education, Accounting, HR) are well-translated
+- Some custom fields or less common labels may remain in English
+- Custom field labels you create will need manual Arabic translations
+
+**Problem: RTL layout looks broken**
+
+1. Hard refresh: `Ctrl + F5`
+2. Clear browser cache
+3. Try a different browser (Chrome, Firefox, Edge)
+4. Make sure you're using the latest browser version
+
+---
+
 ## Quick Reference
 
 | Action | Search Term | Path |
@@ -372,6 +504,8 @@ The system has three custom roles configured for the tuition center:
 | Role permissions | Role Permissions Manager | Role Permissions Manager |
 | System settings | System Settings | System Settings |
 | Global defaults | Global Defaults | Global Defaults |
+| Change language | Settings | Profile → Settings → Language |
+| Enable languages | System Settings | System Settings → Enabled Languages |
 
 ---
 
