@@ -37,11 +37,11 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 5. **Arabic language** - Enable Arabic translation + RTL layout ⬜ PENDING
 
 **5 Additional Items:**
-6. **System settings** - Timezone (Asia/Kuwait), date format, number format ⬜ PENDING
-7. **Fiscal year** - Create fiscal year for the institute ✅ DONE (2025-2026)
-8. **Cost centers** - Set up branch-wise cost centers for accounting ⬜ PENDING
-9. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents ⬜ PENDING
-10. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
+1. **System settings** - Timezone (Asia/Kuwait), date format, number format ⬜ PENDING
+2. **Fiscal year** - Create fiscal year for the institute ✅ DONE (2025-2026)
+3. **Cost centers** - Set up branch-wise cost centers for accounting ⬜ PENDING
+4. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents ⬜ PENDING
+5. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
 
 **Total: 10 items (5 core + 5 additional)**
 **Completed: 4/10 | Pending: 6/10**
