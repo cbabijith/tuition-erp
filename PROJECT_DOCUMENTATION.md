@@ -47,6 +47,11 @@ This document provides step-by-step guides for managing the ERPNext system via t
   - [Link Print Format to Letterhead (Manual UI Step)](#link-print-format-to-letterhead-manual-ui-step)
   - [Create a New Print Format](#create-a-new-print-format)
   - [Preview a Print Format](#preview-a-print-format)
+- [Number Series](#number-series)
+  - [What are Number Series](#what-are-number-series)
+  - [Current REG Number Series](#current-reg-number-series)
+  - [View Number Series Settings](#view-number-series-settings)
+  - [Change Number Series for a DocType](#change-number-series-for-a-doctype)
 - [Language Management (English & Arabic)](#language-management-english--arabic)
   - [Enable Arabic in System Settings](#enable-arabic-in-system-settings)
   - [Switch User Language to Arabic](#switch-user-language-to-arabic)
@@ -705,6 +710,89 @@ The print formats need to be linked to the letterhead manually:
 
 ---
 
+## Number Series
+
+### What are Number Series
+
+Number series automatically generate sequential numbers for documents (invoices, receipts, student IDs, etc.). They ensure each document has a unique, traceable identifier.
+
+**Example:**
+```
+First Sales Invoice:  REG-INV-2025-0001
+Second Sales Invoice: REG-INV-2025-0002
+Third Sales Invoice:  REG-INV-2025-0003
+```
+
+### Current REG Number Series
+
+All number series use the **REG** prefix with year-based numbering:
+
+| DocType | Number Series | Example |
+|---|---|---|
+| Sales Invoice | `REG-INV-.YYYY.-` | REG-INV-2025-0001 |
+| Payment Entry | `REG-PAY-.YYYY.-` | REG-PAY-2025-0001 |
+| Journal Entry | `REG-JV-.YYYY.-` | REG-JV-2025-0001 |
+| Sales Order | `REG-SO-.YYYY.-` | REG-SO-2025-0001 |
+| Customer | `REG-CUST-.YYYY.-` | REG-CUST-2025-0001 |
+| Supplier | `REG-SUPP-.YYYY.-` | REG-SUPP-2025-0001 |
+| Quotation | `REG-QUO-.YYYY.-` | REG-QUO-2025-0001 |
+| Purchase Order | `REG-PO-.YYYY.-` | REG-PO-2025-0001 |
+| Purchase Invoice | `REG-PINV-.YYYY.-` | REG-PINV-2025-0001 |
+| Stock Entry | `REG-STE-.YYYY.-` | REG-STE-2025-0001 |
+| Delivery Note | `REG-DN-.YYYY.-` | REG-DN-2025-0001 |
+| Material Request | `REG-MR-.YYYY.-` | REG-MR-2025-0001 |
+| Employee | `REG-EMP-.YYYY.-` | REG-EMP-2025-0001 |
+| Lead | `REG-LEAD-.YYYY.-` | REG-LEAD-2025-0001 |
+| Opportunity | `REG-OPP-.YYYY.-` | REG-OPP-2025-0001 |
+
+**Additional series created (for Education module - will be linked when module is installed):**
+
+| DocType | Number Series | Example |
+|---|---|---|
+| Student | `REG-STU-.YYYY.-` | REG-STU-2025-0001 |
+| Student Applicant | `REG-APP-.YYYY.-` | REG-APP-2025-0001 |
+| Student Group | `REG-SG-.YYYY.-` | REG-SG-2025-0001 |
+| Program Enrollment | `REG-PE-.YYYY.-` | REG-PE-2025-0001 |
+| Fee Structure | `REG-FS-.YYYY.-` | REG-FS-2025-0001 |
+| Fee Schedule | `REG-FSC-.YYYY.-` | REG-FSC-2025-0001 |
+| Fees | `REG-FEE-.YYYY.-` | REG-FEE-2025-0001 |
+| Salary Slip | `REG-SS-.YYYY.-` | REG-SS-2025-0001 |
+| Leave Application | `REG-LA-.YYYY.-` | REG-LA-2025-0001 |
+| Attendance | `REG-ATT-.YYYY.-` | REG-ATT-2025-0001 |
+| Payroll Entry | `REG-PR-.YYYY.-` | REG-PR-2025-0001 |
+
+**Total: 26 number series created, 15 doctypes currently configured**
+
+---
+
+### View Number Series Settings
+
+1. Login to ERPNext at `http://localhost:8080`
+2. Click the **search bar** at the top
+3. Type **Customize Form** and select it
+4. Select the DocType you want to check (e.g., "Sales Invoice")
+5. Look for the **Naming Series** field
+6. You will see `REG-INV-.YYYY.-` as the available option
+
+**Alternative**: Open any document (e.g., Sales Invoice) → look at the **Naming Series** field at the top of the form.
+
+---
+
+### Change Number Series for a DocType
+
+1. Search **Customize Form** → open it
+2. Select **Doc Type** (e.g., "Sales Invoice")
+3. Find the **Naming Series** field
+4. You can:
+   - **Add multiple series**: Enter each on a new line (e.g., add `REG-INV-OLD-.YYYY.-` for legacy invoices)
+   - **Change default**: The first series in the list is the default
+5. Click **Save**
+6. New documents will use the selected naming series
+
+**Note**: Existing documents keep their original numbers. Only new documents use the updated series.
+
+---
+
 ## Language Management (English & Arabic)
 
 The system supports both **English** and **Arabic (العربية)** languages. Both are available in the system. Arabic includes automatic RTL (Right-to-Left) layout support.
@@ -845,6 +933,7 @@ Once Arabic is enabled in System Settings, each user can switch their language:
 | Profit & Loss by branch | Profit and Loss Statement | Profit and Loss Statement → filter by Cost Center |
 | View letterhead | Letter Head | Letter Head List |
 | View print formats | Print Format | Print Format List |
+| View number series | Customize Form | Customize Form → select DocType → Naming Series |
 | Role permissions | Role Permissions Manager | Role Permissions Manager |
 | System settings | System Settings | System Settings |
 | Global defaults | Global Defaults | Global Defaults |

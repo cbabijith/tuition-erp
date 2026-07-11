@@ -41,10 +41,10 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 2. **Fiscal year** - Create fiscal year for the institute ✅ DONE (2025-2026)
 3. **Cost centers** - Set up branch-wise cost centers for accounting ✅ DONE (Jaleeb, Mangaf with Income/Expenses sub-centers)
 4. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents ✅ DONE (letterhead + 2 print formats created, header needs manual UI step - see note below)
-5. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
+5. **Number series** - Configure invoice numbers, student IDs, etc. ✅ DONE (REG prefix for all doctypes)
 
 **Total: 10 items (5 core + 5 additional)**
-**Completed: 8/10 | Pending: 2/10**
+**Completed: 9/10 | Pending: 1/10**
 
 **Arabic Language Setup Note:**
 - Arabic (العربية, code: `ar`) is available in the system with 84 total languages
@@ -81,6 +81,7 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 - ✅ Cost Centers: REG Learning Center (root) → Jaleeb Branch (Income + Expenses) + Mangaf Branch (Income + Expenses)
 - ✅ Print Formats: Fee Receipt + REG Standard Invoice created for Sales Invoice with Jinja/HTML templates
 - ✅ Letterhead: REG Learning Center created (default, footer configured)
+- ✅ Number Series: 26 REG-prefixed series created, 15 doctypes configured with REG naming series
 
 ### Phase 2: Education Module (First functional module)
 - Academic year & term setup
