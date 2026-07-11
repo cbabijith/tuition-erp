@@ -52,6 +52,12 @@ This document provides step-by-step guides for managing the ERPNext system via t
   - [Current REG Number Series](#current-reg-number-series)
   - [View Number Series Settings](#view-number-series-settings)
   - [Change Number Series for a DocType](#change-number-series-for-a-doctype)
+- [Email Configuration](#email-configuration)
+  - [Current Email Setup](#current-email-setup)
+  - [View Email Settings](#view-email-settings)
+  - [Test Email Sending](#test-email-sending)
+  - [Change Email Password](#change-email-password)
+  - [Email Signature](#email-signature)
 - [Language Management (English & Arabic)](#language-management-english--arabic)
   - [Enable Arabic in System Settings](#enable-arabic-in-system-settings)
   - [Switch User Language to Arabic](#switch-user-language-to-arabic)
@@ -793,6 +799,97 @@ All number series use the **REG** prefix with year-based numbering:
 
 ---
 
+## Email Configuration
+
+### Current Email Setup
+
+| Setting | Value |
+|---|---|
+| Email Address | info@abijithcb.com |
+| Account Name | REG Learning Center |
+| Service | Gmail |
+| SMTP Server | smtp.gmail.com |
+| SMTP Port | 587 |
+| TLS | Enabled |
+| SSL | Disabled |
+| Outgoing | Enabled (Default) |
+| Incoming | Disabled |
+| Signature | Enabled (REG Learning Center footer) |
+| Email Domain | abijithcb.com |
+
+The system sends emails (fee receipts, invoices, notifications, password resets) via this Gmail account using an App Password.
+
+---
+
+### View Email Settings
+
+1. Login to ERPNext at `http://localhost:8080`
+2. Click the **search bar** at the top
+3. Type **Email Account** and select **Email Account List**
+4. Click on **REG Learning Center** (or info@abijithcb.com)
+5. You will see:
+   - Email Address: info@abijithcb.com
+   - Outgoing: Enabled
+   - Default Outgoing: Enabled
+   - SMTP Server: smtp.gmail.com
+   - Port: 587
+   - TLS: Checked
+   - Signature: REG Learning Center footer
+
+**To view Email Domain:**
+1. Search **Email Domain** → click **Email Domain List**
+2. Click on **abijithcb.com**
+3. View SMTP settings
+
+---
+
+### Test Email Sending
+
+1. Search **Email Account** → click **REG Learning Center**
+2. Click the **three dots menu** (⋯) at the top right
+3. Select **Test Notification**
+4. A test email will be sent to the Administrator's email
+5. Check the inbox to confirm email is working
+
+**Alternative test:**
+1. Search **Email Queue** → click **Email Queue List**
+2. Any pending/failed emails will show here
+3. You can retry failed emails from this page
+
+---
+
+### Change Email Password
+
+If the Gmail App Password needs to be updated:
+
+1. Search **Email Account** → click **REG Learning Center**
+2. Find the **Password** field
+3. Enter the new App Password
+4. Click **Save**
+
+**Note**: This uses a Gmail App Password (not your regular Gmail password). To generate a new App Password:
+1. Go to your Google Account settings
+2. Security → 2-Step Verification → App Passwords
+3. Generate a new password for "Mail"
+4. Use that 16-character password in ERPNext
+
+---
+
+### Email Signature
+
+The email signature appears at the bottom of all outgoing emails:
+
+1. Search **Email Account** → click **REG Learning Center**
+2. Scroll to the **Signature** section
+3. **Add Signature**: Checked
+4. **Signature** field contains:
+   ```
+   REG Learning Center | Jaleeb Al Shuyoukh, Kuwait | Tel: 65546684
+   ```
+5. Edit as needed and click **Save**
+
+---
+
 ## Language Management (English & Arabic)
 
 The system supports both **English** and **Arabic (العربية)** languages. Both are available in the system. Arabic includes automatic RTL (Right-to-Left) layout support.
@@ -934,6 +1031,9 @@ Once Arabic is enabled in System Settings, each user can switch their language:
 | View letterhead | Letter Head | Letter Head List |
 | View print formats | Print Format | Print Format List |
 | View number series | Customize Form | Customize Form → select DocType → Naming Series |
+| View email settings | Email Account | Email Account List |
+| View email domain | Email Domain | Email Domain List |
+| Email queue | Email Queue | Email Queue List |
 | Role permissions | Role Permissions Manager | Role Permissions Manager |
 | System settings | System Settings | System Settings |
 | Global defaults | Global Defaults | Global Defaults |
