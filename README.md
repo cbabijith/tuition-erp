@@ -31,7 +31,7 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 
 **5 Core Items:**
 1. **Company, currency, fiscal year** - Set up company (REG Learning Center), currency (KWD), fiscal year ✅ DONE
-2. **Branches** - Configure branch locations (Head Office + additional branches) ⬜ PENDING
+2. **Branches** - Configure branch locations (Head Office + additional branches) ✅ DONE (Jaleeb, Mangaf)
 3. **Roles & permissions** - Super Admin, Branch Admin, Staff roles ⬜ PENDING
 4. **Email (SMTP)** - Configure outgoing email server ⬜ PENDING
 5. **Arabic language** - Enable Arabic translation + RTL layout ⬜ PENDING
@@ -44,12 +44,13 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 10. **Number series** - Configure invoice numbers, student IDs, etc. ⬜ PENDING
 
 **Total: 10 items (5 core + 5 additional)**
-**Completed: 2/10 | Pending: 8/10**
+**Completed: 3/10 | Pending: 7/10**
 
 **Additional work completed:**
 - ✅ Company: REG Learning Center created (Abbr: REG, Country: Kuwait, Currency: KWD, Domain: Education)
 - ✅ Address: Head Office - Floor No. 1, Building No. 172, Street 25, Block 4, Jaleeb Al Shuyoukh, Kuwait
 - ✅ Fiscal Year: 2025-2026 (Jul 1, 2025 → Jun 30, 2026)
+- ✅ Branches: Jaleeb, Mangaf created
 - ✅ Default company & currency set in Global Defaults
 - ✅ Default "ABC" company deleted
 - ✅ 11 unwanted workspaces hidden (Manufacturing, Quality, Buying, Stock, Projects, Support, Website, Tools, ERPNext Integrations, Build, Welcome Workspace)
