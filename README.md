@@ -25,10 +25,71 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 
 ---
 
+## Implementation Phases
+
+### Phase 1: System Setup & Configuration
+- Set up company, currency (KWD), fiscal year
+- Configure branches
+- Set up roles and permissions (Super Admin, Branch Admin, Staff)
+- Configure email (SMTP)
+- Arabic language setup
+
+### Phase 2: Education Module (First functional module)
+- Academic year & term setup
+- Create programs/courses (Physics, Chemistry, Maths, combos)
+- Configure fee structures (subject-wise, combo packages)
+- Set up fee schedules (monthly billing)
+- Student enrollment workflow
+
+### Phase 3: CRM Module
+- Lead capture (enquiries from parents/students)
+- Follow-up activities and reminders
+- Lead → Opportunity → Student Admission conversion
+- Admission pipeline tracking
+
+### Phase 4: Accounting Module
+- Chart of accounts setup
+- Fee invoicing workflow (linked to Education module)
+- Payment entry recording (cash, bank, digital)
+- Outstanding balance tracking
+- Branch-wise financial reports
+
+### Phase 5: HR & Payroll Module
+- Employee master (teachers, admin staff)
+- Salary structures (Kuwait-specific components)
+- Monthly payroll processing
+- Salary slip generation
+
+### Phase 6: Attendance & Leave Module
+- Employee attendance tracking
+- Leave policy configuration
+- Leave application and approval workflow
+- Attendance reports by branch
+
+### Phase 7: Asset Management Module
+- Asset registration (computers, projectors, furniture)
+- Asset allocation to branches
+- Maintenance scheduling
+- Depreciation tracking
+
+### Phase 8: Document Management & Reports
+- Document templates (fee receipts, salary slips, admission letters)
+- Custom dashboards (fee collection, defaulters, attendance)
+- Email notification templates (payment confirmation, fee due reminders)
+- Management reports
+
+### Phase 9: Moodle Integration (Custom Development)
+- Student sync from ERPNext → Moodle
+- API integration setup
+- Testing and deployment
+
+---
+
 ## Table of Contents
 
 - [Overview](#overview)
 - [Modules Required for Tuition Center](#modules-required-for-tuition-center)
+- [Implementation Phases](#implementation-phases)
 - [Tech Stack](#tech-stack)
 - [Quick Start](#quick-start)
 - [Deployment on a New Server](#deployment-on-a-new-server)
