@@ -28,11 +28,22 @@ All 8 modules come pre-installed with ERPNext v15. No additional module installa
 ## Implementation Phases
 
 ### Phase 1: System Setup & Configuration
-- Set up company, currency (KWD), fiscal year
-- Configure branches
-- Set up roles and permissions (Super Admin, Branch Admin, Staff)
-- Configure email (SMTP)
-- Arabic language setup
+
+**5 Core Items:**
+1. **Company, currency, fiscal year** - Set up company (REG Learning Center), currency (KWD), fiscal year
+2. **Branches** - Configure branch locations (Head Office + additional branches)
+3. **Roles & permissions** - Super Admin, Branch Admin, Staff roles
+4. **Email (SMTP)** - Configure outgoing email server
+5. **Arabic language** - Enable Arabic translation + RTL layout
+
+**5 Additional Items:**
+6. **System settings** - Timezone (Asia/Kuwait), date format, number format
+7. **Fiscal year** - Create fiscal year for the institute
+8. **Cost centers** - Set up branch-wise cost centers for accounting
+9. **Print formats / Letterhead** - Institute logo, header for fee receipts & documents
+10. **Number series** - Configure invoice numbers, student IDs, etc.
+
+**Total: 10 items (5 core + 5 additional)**
 
 ### Phase 2: Education Module (First functional module)
 - Academic year & term setup
